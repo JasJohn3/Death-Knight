@@ -2,43 +2,102 @@
 //
 
 #include "pch.h"
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <vector>
-#include <string>
-#include <fstream>
-#include <algorithm>
+
 #include "Player.h"
 #include "Mage.h"
-void Dice_Roll();
+int Dice_Roll();
 void Intro();
 void Profile();
-void Menu(string character_name);
 string CharacterName(string character_name);
 using namespace std;
 int main()
 {
-	string character_name="";
-	Intro();
-	Menu(character_name);
-
-
+	string character_name;
 	
+	cout << "1. Introduction." << endl;
+	cout << "2. Create a User Profile." << endl;
+	cout << "3. Play Game." << endl;
+	cout << "4. Quit." << endl << endl;
+
+
+	cout << "Please Enter your selection: " << flush;
+
+	int user_input;
+	cin >> user_input;
+	cout << endl;
+	switch (user_input)
+	{
+	case 1:
+		cout << "\nIntroduction." << endl << endl;
+		Intro();
+		main();
+		break;
+	case 2:
+		cout << "Create a User Profile" << endl << endl;
+		Profile();
+		main();
+		break;
+	case 3:
+		cout << "Loading Game" << endl << endl;
+		system("cls");
+		break;
+	case 4:
+		cout << "Exit" << endl << endl;
+		exit(0);
+	default:
+		cout << "Invalid Selection.  Returning to Main Menu." << endl;
+		break;
+	}
+
+	character_name = CharacterName(character_name);
 	Player p = Player(character_name);
 	Mage M = Mage("Mage");
-
 	std::cout << "Your Character Name is " << p.GetName() << endl;
-	std::cout << "Your Health is " << p.GetHealth() << endl;
-	
+	int damage;
+	bool victory_condition=true;
+	do
+	{
+		
+		
+		std::cout << "\nYour Health is " << p.GetHealth() << endl<<endl;
+		cout << "Press Enter to roll the dice for your attack." << endl;
+		std::system("pause");
+		cout << "You attack for: " << flush;
+		damage=Dice_Roll();
+		cout << damage << " Damage" << endl<<endl;
+		M.Damage(damage);
+		system("pause");
+		cout << "\nBoss Health is " << M.GetHealth() << endl<<endl;
+		damage = Dice_Roll();
+		cout << "Deadly boss attacks for: "<<endl<<endl;
+		cout << damage << " Damage" << endl;
+		p.Damage(damage);
+		if (p.GetHealth() <= 0)
+		{
+			cout << "You have died.  Thank you for playing." << endl;
 
+			victory_condition = false;
+		}
+		else if (M.GetHealth() <= 0)
+		{
+			cout << "You have defeated the deadly boss.  Thank you for playing." << endl;
+
+			victory_condition = false;
+		}
+
+
+	} while (victory_condition);
 	std::system("pause");
+	main();
+
+
 	return 0;
 }
-void Dice_Roll(int dice)
+int Dice_Roll()
 {
 	srand(time(0));
 	int dice_roll = (rand() % 6) + 1;
+	return dice_roll;
 }
 void Intro() {
 	std::cout << "Welcome to Death Knight.  This is a game based on Dice Rolls."<<endl;  
@@ -92,42 +151,7 @@ void Profile()
 	*/
 
 }
-void Menu(string character_name)
-{
-	cout << "1. Create a User Profile." << endl;
-	cout << "2. Create a character." << endl;
-	cout << "3. Play Game." << endl;
-	cout << "4. Quit." << endl << endl;
-	
 
-	cout << "Please Enter your selection: " << flush;
-
-	int user_input;
-	cin >> user_input;
-	cout << endl;
-	switch (user_input)
-	{
-	case 1:
-		cout << "Create a User Profile." << endl << endl;
-		Profile();
-		Menu(character_name);
-		break;
-	case 2:
-		cout << "Create a Character" << endl << endl;
-		CharacterName(character_name);
-		break;
-	case 3:
-		cout << "Menu Option 1" << endl << endl;
-		main();
-	case 4:
-		cout << "Exit" << endl << endl;
-		exit(0);
-	default:
-		cout << "Invalid Selection.  Returning to Main Menu." << endl;
-		break;
-	}
-
-}
 string CharacterName(string character_name)
 {
 	

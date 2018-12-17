@@ -9,11 +9,17 @@
 #ifndef PCH_H
 #define PCH_H
 #include <iostream>
-#include<array>
-#include<random>
-#include<vector>
-#include<unordered_map>
-#include<fstream>
+#include <array>
+#include <random>
+#include <vector>
+#include <unordered_map>
+#include <map>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include <fstream>
+#include <algorithm>
 // TODO: add headers that you want to pre-compile here
 
 #endif //PCH_H
