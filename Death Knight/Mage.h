@@ -3,7 +3,7 @@
 #define MAGE_H
 
 #endif // !PLAYER_H
-
+//Final Assignment requirement(7) Polymorphism
 #pragma once
 
 #include"Character.h"

@@ -1,6 +1,7 @@
 #include"pch.h"
 #include"Entity.h"
-
+//Final Assignment requirement(5)
+//Final Assignment requirement(6)
 Entity::Entity()
 {
 

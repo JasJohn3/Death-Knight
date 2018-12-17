@@ -13,7 +13,7 @@ using namespace std;
 int main()
 {
 	string character_name;
-	
+	//User Menu Assignment requirement(1)
 	cout << "1. Introduction." << endl;
 	cout << "2. Create a User Profile." << endl;
 	cout << "3. Play Game." << endl;
@@ -28,6 +28,7 @@ int main()
 	switch (user_input)
 	{
 	case 1:
+		//Final Assignment requirement(2)
 		cout << "\nIntroduction." << endl << endl;
 		Intro();
 		main();
@@ -100,6 +101,8 @@ int Dice_Roll()
 	return dice_roll;
 }
 void Intro() {
+	//basic introduction
+	// Final Assignment requirement(2)
 	std::cout << "Welcome to Death Knight.  This is a game based on Dice Rolls."<<endl;  
 	cout<<"The Player will roll their dice and determine how much damage they do to the enemy." << endl;
 	std::cout << "You're Character is a Death Knight.  You will face enemies in a duel." << endl<<endl;
@@ -109,6 +112,7 @@ void Intro() {
 }
 void Profile()
 {
+	//Final Assignment requirement(9)
 	ofstream Output_Profile("Profile.txt");
 	ifstream Input_Profile("Profile.txt");
 	
@@ -155,8 +159,8 @@ void Profile()
 string CharacterName(string character_name)
 {
 	
-	vector<string> user_data;
-	vector<string>::iterator iterator;
+	vector<string> user_data;//Final Assignment requirement(3)
+	vector<string>::iterator iterator;//Final Assignment requirement(4)
 	bool exit = true;
 	do
 	{

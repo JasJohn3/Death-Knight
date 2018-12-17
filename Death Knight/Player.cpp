@@ -1,6 +1,6 @@
 #include"pch.h"
 #include"Player.h"
-
+//Final Assignment requirement(6)
 Player::Player() : Character()
 {
 	this->currency = 50;

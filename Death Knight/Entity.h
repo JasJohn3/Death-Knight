@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #endif // !ENTITY_H
-
+//Final Assignment requirement(5)
 #pragma once
 //This is a Master Entity Handler for new objects created in the game
 #include<string>
